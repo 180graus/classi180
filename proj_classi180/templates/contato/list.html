@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<table>
+<tr>
+		<table border="1" class="table">
+		<tr>
+			<th align="center">Nome</th>
+			<th align="center">Fixo</th>
+			<th align="center">Celular</th>
+			<th align="center">e-mail</th>
+			<th align="center">Endereço</th>
+			<th align="center">Editar</th>
+		</tr>
+	
+		{% for contato in contatos %}
+			<td>{{ contato.nome }}</td>
+			<td>{{ contato.fixo }}</td>
+			<td>{{ contato.cel }}</td>
+			<td>{{ contato.email }}</td>
+			<td>{{ contato.edereco }}</td>
+			<td align="center"><form action="/contato/editar/{{contato.id}}"> {% csrf_token %}
+			<input type="submit" value="Editar"></form></td>
+		</tr>
+		{% endfor %}
+		</table>
+		<a href="/contato/criar">Criar Novo Contato</a>
+	</td>
+</tr>
+</table>
+{% endblock %}

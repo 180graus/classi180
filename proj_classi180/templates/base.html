@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>{% block titulo %} Classi180{% endblock %}</title>
+<link rel="alternate" type="application/rss+xml" title="Ultimos Classificados do Classi180" href="/rss/ultimos/" />
+<style type="text/css">
+body {
+  font-family: arial;
+  background-color: black;
+  color: lime;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 0;
+  background-color: aqua;
+  padding: 5px;
+  font-size: 1.2em;
+}
+
+h5 {
+  margin: 0;
+  background-color: white;
+  padding: 2px;
+  font-size: 1em;
+}
+
+.anuncio {
+  border: 1px solid black;
+  background-color: aqua;
+  color: black;
+}
+
+.conteudo {
+  padding: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>{% block h1 %}Classi180{% endblock %}</h1>
+{% block conteudo %}{% endblock %}
+{% for anuncio in latest %}
+<a href="{% url classificados.views.anuncio anuncio_id=anuncio.id %}"><h2>{{ anuncio.titulo }}</h2></a>
+
+{% endfor %}
+<h5>{% include "rodape.html" %}<h5>
+
+</body>
+</html>

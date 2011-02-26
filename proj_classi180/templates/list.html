@@ -1,0 +1,37 @@
+{% block content %}
+<table>
+<tr>
+		<table border="1" class="table">
+		<tr>
+			<th align="center">acao</th>
+			<th align="center">categoria</th>
+			<th align="center">subcategoria</th>
+			<th align="center">anunciante</th>
+			<th align="center">titulo</th>
+			<th align="center">descricao</th>
+			<th align="center">tag</th>
+			<th align="center">preco</th>
+			<th align="center">photo</th>
+		</tr>
+	
+		{% for contato in contatos %}
+			<td>{{ anuncio.acao }}</td>
+			<td>{{ anuncio.categoria }}</td>
+			<td>{{ anuncio.subcategoria }}</td>
+			<td>{{ anuncio.anunciante }}</td>
+			<td>{{ anuncio.titulo }}</td>
+			<td>{{ anuncio.descricao }}</td>
+			<td>{{ anuncio.tag }}</td>
+			<td>{{ anuncio.preco }}</td>
+			<td>{{ anuncio.photo }}</td>
+			
+			<td align="center"><form action="/contato/editar/{{anuncio.id}}"> {% csrf_token %}
+			<input type="submit" value="Editar"></form></td>
+		</tr>
+		{% endfor %}
+		</table>
+		<a href="/contato/criar">Criar Novo Contato</a>
+	</td>
+</tr>
+</table>
+{% endblock %}

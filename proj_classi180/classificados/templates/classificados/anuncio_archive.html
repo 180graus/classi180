@@ -1,0 +1,18 @@
+<html>
+{% extends "base.html" %}
+<head>
+<link rel="alternate" type="application/rss+xml" title="Ultimos Classificados do Classi180" href="/rss/ultimos/" />
+</head>
+
+<body>
+
+<h1>Classi180</h1>
+
+{% for anuncio in latest %}
+<a href="{% url classificados.views.anuncio anuncio_id=anuncio.id %}"><h2>{{ anuncio.titulo }}</h2></a>
+
+{% endfor %}
+{% include "rodape.html" %}
+
+</body>
+</html>

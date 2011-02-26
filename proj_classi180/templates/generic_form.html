@@ -1,0 +1,29 @@
+
+
+{% block content %}
+{{mensagem}}
+<form action="{{action_context}}"method="post"> {% csrf_token %}
+		<table width="100%">
+			{% for field in form %}
+			<tr>
+				<td align="right" width="30%">{% if field.required %}*{% endif %}{{ field.label_tag }}</td>
+				<td align="left">{{ field }}</td>
+			</tr>
+			<tr>
+				<td align="left"></td>
+			</tr>
+			{% if field.erros %}<tr><td></td><td>{{ field.erros }}</td></tr>{% endif %}
+			{% endfor %}
+			<tr>
+				<td></td>
+				<td align="left">
+						<input type="submit" value="Cadastrar" />
+						<input type="button" value="Voltar" onclick="history.go(-1)" />
+				</td>
+			</tr>
+		</table>
+		<p></p>
+	</form>
+	{% endblock %}
+	</body>
+	</html>

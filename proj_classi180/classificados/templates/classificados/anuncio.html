@@ -1,0 +1,38 @@
+<html>
+<head>
+    <!--<style="text/css">
+    #foto{}
+    </style> -->
+</head>
+<body>
+
+<h1>Classi180</h1>
+
+<h2>{{ anuncio.titulo }}</h2>
+<!--<div id="foto"></div> -->
+<h2>Preco: R${{ anuncio.preco }}</h2>
+<h3>Categoria: {{anuncio.categoria}}</h3>
+<h4>Subcategoria: {{anuncio.subcategoria}}</h4>
+<h1>Anunciante: {{anuncio.anunciante}}</h1>
+
+		<div>
+        {% if anuncio.photo %}
+			<div><img alt="{{ anuncio.titulo }}" src="{{ anuncio.photo.url }}"></div>
+         {% else %}   
+			<div><img alt="Anúncio sem imagem para exibição!" src="{{ MEDIA_URL }}/images/anuncios/sem_imagem.jpg"></div>            
+         {% endif %}
+        
+		</div>
+		<!--  	<div>
+				<p class="titulo">{{ veiculos.titulo }}</p>
+				<p class="descricao">{{ veiculos.chamada }}</p>
+				<p class="preco">{{ veiculos.preco }}</p>
+				</div> -->
+
+<!--  <a href="www.classi180.com">
+    <img src="/Users/Wouker/Projetos/proj_classi180/classificados/media/Palio/foto.jpg" alt="photo" />
+</a> -->
+
+
+</body>
+</html>
